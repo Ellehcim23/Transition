@@ -10,6 +10,7 @@ const app = express();
 const methodOverride = require('method-override');
 const { json } = require('sequelize');
 
+
 // Environment variables 
 SECRET_SESSION = process.env.SECRET_SESSION;
 // console.log('>>>>>>>>>>>', SECRET_SESSION);
@@ -19,6 +20,7 @@ app.set('view engine', 'ejs');
 app.use(require('morgan')('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public'));
+app.use(express.static('images'));
 app.use(layouts);
 app.use(methodOverride('_method'))
 
@@ -50,7 +52,8 @@ app.get('/', (req, res) => {
   axios.get('https://api.teleport.org/api/urban_areas/slug:new-york/salaries/')
   .then(function (response) {
     console.log(response.data) // use in conjuction with /scores to get info on each score category
-    res.json ({data: response.data.salaries})
+    res.render('index')
+    // res.json ({data: response.data.salaries})
     // res.json ({data: response.data['_links']['ua:item']})
   })
   .catch(function (error) {
