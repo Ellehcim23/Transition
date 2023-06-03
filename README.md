@@ -711,3 +711,6 @@ npm start
 `3` Push final changes to Github.
 
 `4` Make this repo a **Template** on Github for future projects (i.e. Project 2) ✅
+
+
+sequelize model:create --name salary --attributes web-developer:float,web-designer:float,waiter:float,ux-designer:float,teacher:float,systems-administrator:float,software-engineer:float,sales-manager:float,research-scientist:float,receptionist:float,qa-engineer:float,project-manager:float,product-manager:float,postdoctoral-researcher:float,physician:float,pharmacist:float,operations-manager:float,office-manager:float,nurse:float,mobile-developer:float,mechanical-engineer:float,marketing-manager:float,lecturer:float,interior-designer:float,industrial-designer:float,it-manager:float,human-resources-manager:float,hardware-engineer:float,graphic-designer:float,financial-analyst:float,finance-manager:float,fashion-designer:float,executive-assistant:float,electrical-engineer:float,dentist:float,data-scientist:float,data-analyst:float,customer-support:float,copywriter:float,content-marketing:float,civil-engineer:float,chemical-engineer:float,chef:float,cashier:float,c-level-executive:float,business-development:float,business-analyst:float,attorney:float,architect:float,administrative-assistant:float,accountant:float,account-manager:float

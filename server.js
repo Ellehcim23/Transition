@@ -3,9 +3,12 @@ const express = require('express');
 const layouts = require('express-ejs-layouts');
 const session = require('express-session');
 const flash = require('connect-flash');
+const axios = require('axios');
 const passport = require('./config/ppConfig');
 const isLoggedIn = require('./middleware/isLoggedIn');
 const app = express();
+const methodOverride = require('method-override');
+const { json } = require('sequelize');
 
 // Environment variables 
 SECRET_SESSION = process.env.SECRET_SESSION;
@@ -17,6 +20,7 @@ app.use(require('morgan')('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public'));
 app.use(layouts);
+app.use(methodOverride('_method'))
 
 app.use(flash());            // flash middleware
 
@@ -37,8 +41,96 @@ app.use((req, res, next) => {
   next();
 });
 
+// res.json ({data: response.data['_links']['ua:item']}) to get names and links to each urban area in the API using /urban_areas/
+// res.json ({data: response.data.photos[0]['image']['web']}) or ['mobile'] to get images from each ua area using /slug:.../images/
+// res.json ({data: response.data.categories}) use a foreach to display name of each category and score out of 10
+// .summary 
+// res.json ({data: response.data.salaries})
 app.get('/', (req, res) => {
-  res.render('index');
+  axios.get('https://api.teleport.org/api/urban_areas/slug:new-york/salaries/')
+  .then(function (response) {
+    console.log(response.data) // use in conjuction with /scores to get info on each score category
+    res.json ({data: response.data.salaries})
+    // res.json ({data: response.data['_links']['ua:item']})
+  })
+  .catch(function (error) {
+    res.json({ message: 'Data not found. Please try again later.' });
+  });
+  // res.render('index');
+})
+
+app.get('/about', (req, res) => {
+  return res.render('about');  // View to be made
+})
+
+app.get('/contact', function (req, res) {
+  return res.render('contact');
+});
+
+app.get('/new-york', (req, res) => {
+  axios.get('https://api.teleport.org/api/urban_areas/slug:new-york/')
+  .then(function (response) {
+    console.log(response.data)
+    res.json ({data: response.data})
+  })
+  .catch(function (error) {
+    res.json({ message: 'Data not found. Please try again later.' });
+  });
+})
+
+app.get('/new-york/scores', (req, res) => {
+  axios.get('https://api.teleport.org/api/urban_areas/slug:new-york/scores/')
+  .then(function (response) {
+    console.log(response.data.categories)
+    res.json ({data: response.data.categories})
+  })
+  .catch(function (error) {
+    res.json({ message: 'Data not found. Please try again later.' });
+  });
+})
+
+app.get('/new-york/salaries', (req, res) => {
+  axios.get('https://api.teleport.org/api/urban_areas/slug:new-york/salaries/')
+  .then(function (response) {
+    console.log(response.data.salaries)
+    res.json ({data: response.data.salaries})
+  })
+  .catch(function (error) {
+    res.json({ message: 'Data not found. Please try again later.' });
+  });
+})
+
+app.get('/miami', (req, res) => {
+  axios.get('https://api.teleport.org/api/urban_areas/slug:miami/')
+  .then(function (response) {
+    console.log(response.data)
+    res.json ({data: response.data})
+  })
+  .catch(function (error) {
+    res.json({ message: 'Data not found. Please try again later.' });
+  });
+})
+
+app.get('/miami/scores', (req, res) => {
+  axios.get('https://api.teleport.org/api/urban_areas/slug:miami/scores/')
+  .then(function (response) {
+    console.log(response.data.categories)
+    res.json ({data: response.data.categories})
+  })
+  .catch(function (error) {
+    res.json({ message: 'Data not found. Please try again later.' });
+  });
+})
+
+app.get('/miami/salaries', (req, res) => {
+  axios.get('https://api.teleport.org/api/urban_areas/slug:miami/salaries/')
+  .then(function (response) {
+    console.log(response.data.salaries)
+    res.json ({data: response.data.salaries})
+  })
+  .catch(function (error) {
+    res.json({ message: 'Data not found. Please try again later.' });
+  });
 })
 
 app.use('/auth', require('./controllers/auth'));
@@ -48,6 +140,10 @@ app.get('/profile', isLoggedIn, (req, res) => {
   const { id, name, email } = req.user.get(); 
   res.render('profile', { id, name, email });
 });
+
+app.get('/:input', function(req,res) {
+  res.json({message: `There is no data for / ${req.params.input}`})
+})
 
 const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () => {
