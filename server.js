@@ -9,6 +9,7 @@ const isLoggedIn = require('./middleware/isLoggedIn');
 const app = express();
 const methodOverride = require('method-override');
 const { json } = require('sequelize');
+const {location , life_score, salary} = require('./models')
 
 
 // Environment variables 
@@ -70,72 +71,154 @@ app.get('/contact', function (req, res) {
   return res.render('contact');
 });
 
+// app.get('/new-york', (req, res) => {
+//   axios.get('https://api.teleport.org/api/urban_areas/slug:new-york/')
+//   .then(function (response) {
+//     console.log(response.data)
+//     // res.json ({data: response.data})
+//     res.render('new-york')
+//   })
+//   .catch(function (error) {
+//     res.json({ message: 'Data not found. Please try again later.' });
+//   });
+// })
+
 app.get('/new-york', (req, res) => {
-  axios.get('https://api.teleport.org/api/urban_areas/slug:new-york/')
-  .then(function (response) {
-    console.log(response.data)
-    res.json ({data: response.data})
+  location.findOne({
+    where : {id:2}
   })
-  .catch(function (error) {
-    res.json({ message: 'Data not found. Please try again later.' });
-  });
+  .then(locations => {
+    console.log('raw New York info', locations.dataValues)
+    return res.render('new-york', {locations: locations.dataValues})
+  })
+  .catch(err=> {
+    console.log('Err', err);
+    res.render('no-result')
+  })
 })
 
-app.get('/new-york/scores', (req, res) => {
-  axios.get('https://api.teleport.org/api/urban_areas/slug:new-york/scores/')
-  .then(function (response) {
-    console.log(response.data.categories)
-    res.json ({data: response.data.categories})
+// app.get('/new-york/scores', (req, res) => {
+//   axios.get('https://api.teleport.org/api/urban_areas/slug:new-york/scores/')
+//   .then(function (response) {
+//     console.log(response.data.categories)
+//     res.json ({data: response.data.categories})
+//   })
+//   .catch(function (error) {
+//     res.json({ message: 'Data not found. Please try again later.' });
+//   });
+// })
+app.get('/new-york/score', (req, res) => {
+  life_score.findOne({
+    where: {locationId:2}
   })
-  .catch(function (error) {
-    res.json({ message: 'Data not found. Please try again later.' });
-  });
+  .then(life_scores => {
+    console.log(life_scores.dataValues)
+    return res.render('new-york-score', {life_scores: life_scores.dataValues})
+  })
+  .catch(err=> {
+    console.log('Err', err);
+    res.render('no-result')
+  })
 })
 
-app.get('/new-york/salaries', (req, res) => {
-  axios.get('https://api.teleport.org/api/urban_areas/slug:new-york/salaries/')
-  .then(function (response) {
-    console.log(response.data.salaries)
-    res.json ({data: response.data.salaries})
+// app.get('/new-york/salary', (req, res) => {
+//   axios.get('https://api.teleport.org/api/urban_areas/slug:new-york/salaries/')
+//   .then(function (response) {
+//     console.log(response.data.salaries)
+//     res.json ({data: response.data.salaries})
+//   })
+//   .catch(function (error) {
+//     res.json({ message: 'Data not found. Please try again later.' });
+//   });
+// })
+
+app.get('/new-york/salary', (req, res) => {
+  salary.findOne({
+    where: {locationId:1}
   })
-  .catch(function (error) {
-    res.json({ message: 'Data not found. Please try again later.' });
-  });
+  .then(salaries => {
+    console.log(salaries.dataValues)
+    return res.render('new-york-salary', {salaries: salaries.dataValues})
+  })
+  .catch(err=> {
+    console.log('Err', err);
+    res.render('no-result')
+  })
 })
 
+// app.get('/miami', (req, res) => {
+//   axios.get('https://api.teleport.org/api/urban_areas/slug:miami/')
+//   .then(function (response) {
+//     console.log(response.data)
+//     // res.json ({data: response.data})
+//     res.render('miami', {miami: info})
+//   })
+//   .catch(function (error) {
+//     res.json({ message: 'Data not found. Please try again later.' });
+//   });
+// })
 app.get('/miami', (req, res) => {
-  axios.get('https://api.teleport.org/api/urban_areas/slug:miami/')
-  .then(function (response) {
-    console.log(response.data)
-    res.json ({data: response.data})
+  location.findOne({
+    where : {id:1}
   })
-  .catch(function (error) {
-    res.json({ message: 'Data not found. Please try again later.' });
-  });
+  .then(locations => {
+    return res.render('miami', {locations: locations.dataValues})
+  })
+  .catch(err=> {
+    console.log('Err', err);
+    res.render('no-result')
+  })
 })
 
-app.get('/miami/scores', (req, res) => {
-  axios.get('https://api.teleport.org/api/urban_areas/slug:miami/scores/')
-  .then(function (response) {
-    console.log(response.data.categories)
-    res.json ({data: response.data.categories})
+// app.get('/miami/scores', (req, res) => {
+//   axios.get('https://api.teleport.org/api/urban_areas/slug:miami/scores/')
+//   .then(function (response) {
+//     console.log(response.data.categories)
+//     res.json ({data: response.data.categories})
+//   })
+//   .catch(function (error) {
+//     res.json({ message: 'Data not found. Please try again later.' });
+//   });
+// })
+
+app.get('/miami/score', (req, res) => {
+  life_score.findOne({
+    where: {locationId:1}
   })
-  .catch(function (error) {
-    res.json({ message: 'Data not found. Please try again later.' });
-  });
+  .then(life_scores => {
+    console.log(life_scores.dataValues)
+    return res.render('miami-score', {life_scores: life_scores.dataValues})
+  })
+  .catch(err=> {
+    console.log('Err', err);
+    res.render('no-result')
+  })
 })
 
-app.get('/miami/salaries', (req, res) => {
-  axios.get('https://api.teleport.org/api/urban_areas/slug:miami/salaries/')
-  .then(function (response) {
-    console.log(response.data.salaries)
-    res.json ({data: response.data.salaries})
-  })
-  .catch(function (error) {
-    res.json({ message: 'Data not found. Please try again later.' });
-  });
-})
+// app.get('/miami/salaries', (req, res) => {
+//   axios.get('https://api.teleport.org/api/urban_areas/slug:miami/salaries/')
+//   .then(function (response) {
+//     console.log(response.data.salaries)
+//     res.json ({data: response.data.salaries})
+//   })
+//   .catch(function (error) {
+//     res.json({ message: 'Data not found. Please try again later.' });
+//   });
+// })
 
+app.get('/miami/salary', (req, res) => {
+  salary.findOne({
+    where: {locationId:1}
+  })
+  .then(salaries => {
+    console.log(salaries.dataValues)
+    return res.render('miami-salary', {salaries: salaries.dataValues})
+  })
+  .catch(err=> {
+    console.log('Err', err);
+    res.render('no-result')
+  })
+})
 app.use('/auth', require('./controllers/auth'));
 
 // Add this below /auth controllers
