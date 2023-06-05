@@ -1,0 +1,179 @@
+<header class="masthead" style="background-image: url('/los-angeles-3.jpeg')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="page-heading">
+                    <h1 class="locations">Los Angeles</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col-auto px-0">
+            <div id="sidebar" class="collapse collapse-horizontal show border-end">
+                <div id="sidebar-nav" class="list-group border-0 rounded-0 text-sm-start min-vh-100">
+                    <a href="/los-angeles" class="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i class="bi bi-bootstrap"></i> <span>Overview</span> </a>
+                    <a href="/los-angeles/score" class="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i class="bi bi-film"></i> <span>City Scores</span></a>
+                    <a href="/los-angeles/edit/score" class="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i class="bi bi-film"></i> <span>Edit Scores</span></a>
+                    <a href="/los-angeles/salary" class="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i class="bi bi-heart"></i> <span>City Salaries</span></a>
+                </div>
+            </div>
+        </div>
+        <main class="col ps-md-2 pt-2">
+            <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" class="border rounded-3 p-1 text-decoration-none"><i class="bi bi-list bi-lg py-2 p-1"></i> Menu</a>
+            <div class="page-header pt-3">
+                <h2>City Scores</h2>
+                <p>The city scores demonstrate the strengths and weaknesses in each catergory as they relates to Los Angeles.
+                The scores allow unbiased comparison amongst different cities and certain aspects.</p>
+            </div>
+            <hr>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-offset-1 col-md-10">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col col-sm-3 col-xs-12">
+                                        <h4 class="title">Los Angeles <span>Scores</span></h4>
+                                    </div>
+                                    <div class="col-sm-9 col-xs-12 text-right">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-body table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Category</th>                                         
+                                            <th>City Score</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Housing</td>
+                                            <td><%= life_scores.housing %></td>
+                                        </tr>                          
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>Cost of Living</td>
+                                            <td><%= life_scores.cost_of_living %></td>
+                                        </tr>                          
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>Startup</td>
+                                            <td><%= life_scores.startups %></td>
+                                        </tr>                          
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>Venture Capital</td>
+                                            <td><%= life_scores.venture_capital%></td>
+                                        </tr>                          
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>Travel Connectivity</td>
+                                            <td><%= life_scores.travel_connectivity %></td>
+                                        </tr>                          
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>Commute</td>
+                                            <td><%= life_scores.commute %></td>
+                                        </tr>                          
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>Business Freedom</td>
+                                            <td><%= life_scores.business_freedom %></td>
+                                        </tr>                          
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>Safety</td>
+                                            <td><%= life_scores.safety %></td>
+                                        </tr>                          
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>Healthcare</td>
+                                            <td><%= life_scores.healthcare %></td>
+                                        </tr>                          
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>Education</td>
+                                            <td><%= life_scores.education %></td>
+                                        </tr>                          
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>Environmental Quality</td>
+                                            <td><%= life_scores.environmental_quality %></td>
+                                        </tr>                          
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>Economy</td>
+                                            <td><%= life_scores.economy %></td>
+                                        </tr>                          
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>Taxation</td>
+                                            <td><%= life_scores.taxation %></td>
+                                        </tr>                          
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>Internet Access</td>
+                                            <td><%= life_scores.internet_access %></td>
+                                        </tr>                          
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>Culture</td>
+                                            <td><%= life_scores.culture %></td>
+                                        </tr>                          
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>Tolerance</td>
+                                            <td><%= life_scores.tolerance %></td>
+                                        </tr>                          
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>Outdoors</td>
+                                            <td><%= life_scores.outdoors %></td>
+                                        </tr>                          
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Total:</strong></td>
+                                            <td><strong><%= life_scores.city_score %></strong></td>
+                                        </tr>                          
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="panel-footer">
+                                <div class="row">
+                                    <div class="col-sm-6 col-xs-6">
+                                        <ul class="pagination visible-xs pull-right">
+                                            <li><a href="/los-angeles/edit/score">Edit</a></li>
+                                            <li><a href="#">Delete</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>

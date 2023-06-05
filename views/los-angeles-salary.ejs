@@ -1,0 +1,379 @@
+<header class="masthead" style="background-image: url('/los-angeles-4.webp')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="page-heading">
+                    <h1 class="locations">Los Angeles</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col-auto px-0">
+            <div id="sidebar" class="collapse collapse-horizontal show border-end">
+                <div id="sidebar-nav" class="list-group border-0 rounded-0 text-sm-start min-vh-100">
+                    <a href="/los-angeles" class="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i class="bi bi-bootstrap"></i> <span>Overview</span> </a>
+                    <a href="/los-angeles/score" class="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i class="bi bi-film"></i> <span>City Scores</span></a>
+                    <a href="/los-angeles/edit/score" class="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i class="bi bi-film"></i> <span>Edit Scores</span></a>
+                    <a href="/los-angeles/salary" class="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i class="bi bi-heart"></i> <span>City Salaries</span></a>
+                </div>
+            </div>
+        </div>
+        <main class="col ps-md-2 pt-2">
+            <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" class="border rounded-3 p-1 text-decoration-none"><i class="bi bi-list bi-lg py-2 p-1"></i> Menu</a>
+            <div class="page-header pt-3">
+                <h2>City Salaries</h2>
+                <p>Transitioning to a new city often includes a shift in career's. Below we inlcude an array of possible carrer choices and their average salaries to grant insight into Los Angeles' job market.</p>
+            </div>
+            <hr>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-offset-1 col-md-10">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col col-sm-3 col-xs-12">
+                                        <h4 class="title">Los Angeles <span>Salaries</span></h4>
+                                    </div>
+                                    <div class="col-sm-9 col-xs-12 text-right">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-body table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Position Title</th>                                         
+                                            <th>Avg Salary</th>
+                                        </tr>
+                                    </thead>                                
+                                        <tbody>
+                                            <tr>
+                                                <td>Web Developer</td>
+                                                <td>$ <%= salaries.web_developer %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Web Designer</td>
+                                                <td>$ <%= salaries.web_designer %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Waiter</td>
+                                                <td>$ <%= salaries.waiter %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>UX Designer</td>
+                                                <td>$ <%= salaries.ux_designer %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Teacher</td>
+                                                <td>$ <%= salaries.teacher %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Systems Administrator</td>
+                                                <td>$ <%= salaries.systems_administrator %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Software Engineer</td>
+                                                <td>$ <%= salaries.software_engineer %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Sales Manager</td>
+                                                <td>$ <%= salaries.sales_manager %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Research Scientist</td>
+                                                <td>$ <%= salaries.research_scientist%></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Receptionist</td>
+                                                <td>$ <%= salaries.receptionist %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>QA Engineer</td>
+                                                <td>$ <%= salaries.qa_engineer %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Project Manager</td>
+                                                <td>$ <%= salaries.project_manager %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Product Manager</td>
+                                                <td>$ <%= salaries.product_manager %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Postdoctoral Researcher</td>
+                                                <td>$ <%= salaries.postdoctoral_researcher %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Physician</td>
+                                                <td>$ <%= salaries.physician %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Pharmacist</td>
+                                                <td>$ <%= salaries.pharmacist %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Operations Manager</td>
+                                                <td>$ <%= salaries.operations_manager %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Office Manager</td>
+                                                <td>$ <%= salaries.office_manager %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Nurse</td>
+                                                <td>$ <%= salaries.nurse %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Mobile Developer</td>
+                                                <td>$ <%= salaries.mobile_developer %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Mechanical Engineer</td>
+                                                <td>$ <%= salaries.mechanical_engineer %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Marketing Manager</td>
+                                                <td>$ <%= salaries.marketing_manager %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Lecturer</td>
+                                                <td>$ <%= salaries.lecturer %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>interior Designer</td>
+                                                <td>$ <%= salaries.interior_designer %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Industrial Designer</td>
+                                                <td>$ <%= salaries.industrial_designer %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>IT Manager</td>
+                                                <td>$ <%= salaries.it_manager %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Human Resources Manager</td>
+                                                <td>$ <%= salaries.human_resources_manager %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Human Resources Manager</td>
+                                                <td>$ <%= salaries.human_resources_manager %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Hardware Engineer</td>
+                                                <td>$ <%= salaries.hardware_engineer %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Graphic Designer</td>
+                                                <td>$ <%= salaries.graphic_designer %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Financial Analyst</td>
+                                                <td>$ <%= salaries.financial_analyst %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Finance Manager</td>
+                                                <td>$ <%= salaries.finance_manager %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Fashion Designer</td>
+                                                <td>$ <%= salaries.fashion_designer %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Executive Assistant</td>
+                                                <td>$ <%= salaries.executive_assistant %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Electrical Engineer</td>
+                                                <td>$ <%= salaries.electrical_engineer %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Dentist</td>
+                                                <td>$ <%= salaries.dentist %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Data Scientist</td>
+                                                <td>$ <%= salaries.data_scientist %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Data Analyst</td>
+                                                <td>$ <%= salaries.data_analyst %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Customer Support</td>
+                                                <td>$ <%= salaries.customer_support %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Copywriter</td>
+                                                <td>$ <%= salaries.copywriter %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Content Marketing</td>
+                                                <td>$ <%= salaries.content_marketing %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Civil Engineer</td>
+                                                <td>$ <%= salaries.civil_engineer %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Chemical Engineer</td>
+                                                <td>$ <%= salaries.chemical_engineer %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Chef</td>
+                                                <td>$ <%= salaries.chef %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Cashier</td>
+                                                <td>$ <%= salaries.cashier %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>C Level Executive</td>
+                                                <td>$ <%= salaries.c_level_executive %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Business Development</td>
+                                                <td>$ <%= salaries.business_development %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Business Analyst</td>
+                                                <td>$ <%= salaries.business_analyst %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Attorney</td>
+                                                <td>$ <%= salaries.attorney %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Architect</td>
+                                                <td>$ <%= salaries.architect %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Administrative Assistant</td>
+                                                <td>$ <%= salaries.administrative_assistant %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Account Manager</td>
+                                                <td>$ <%= salaries.account_manager %></td>
+                                            </tr>                          
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Accountant</td>
+                                                <td>$ <%= salaries.accountant %></td>
+                                            </tr>                          
+                                        </tbody>
+                                </table>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>

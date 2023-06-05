@@ -97,6 +97,18 @@ app.get('/new-york', (req, res) => {
   })
 })
 
+app.get('/new-york/edit/score', function(req,res){
+  life_score.findOne({
+    where: {locationId:2}
+  })
+  .then(life_scores=> {
+    return res.render ('new-york-score-edit', { life_scores: life_scores.dataValues })
+  })
+  .catch(err=> {
+    console.log('Err', err);
+    res.render('no-result')
+  })
+})
 // app.get('/new-york/scores', (req, res) => {
 //   axios.get('https://api.teleport.org/api/urban_areas/slug:new-york/scores/')
 //   .then(function (response) {
@@ -146,6 +158,17 @@ app.get('/new-york/salary', (req, res) => {
   })
 })
 
+app.put('/new-york/edit/score', function(req,res) {
+  life_score.update(req.body, {
+    where: {locationId:2}
+  })
+  .then(numOfRowsChanged => {
+    console.log('Amount of rows changed', numOfRowsChanged)
+    res.redirect('/new-york/score')
+  })
+  .catch(err => console.log('Error', err));
+})
+
 // app.get('/miami', (req, res) => {
 //   axios.get('https://api.teleport.org/api/urban_areas/slug:miami/')
 //   .then(function (response) {
@@ -163,6 +186,19 @@ app.get('/miami', (req, res) => {
   })
   .then(locations => {
     return res.render('miami', {locations: locations.dataValues})
+  })
+  .catch(err=> {
+    console.log('Err', err);
+    res.render('no-result')
+  })
+})
+
+app.get('/miami/edit/score', function(req,res){
+  life_score.findOne({
+    where: {locationId:1}
+  })
+  .then(life_scores=> {
+    return res.render ('miami-score-edit', { life_scores: life_scores.dataValues })
   })
   .catch(err=> {
     console.log('Err', err);
@@ -219,6 +255,84 @@ app.get('/miami/salary', (req, res) => {
     res.render('no-result')
   })
 })
+
+app.put('/miami/edit/score', function(req,res) {
+  life_score.update(req.body, {
+    where: {locationId:1}
+  })
+  .then(numOfRowsChanged => {
+    console.log('Amount of rows changed', numOfRowsChanged)
+    res.redirect('/miami/score')
+  })
+  .catch(err => console.log('Error', err));
+})
+
+app.get('/los-angeles', (req, res) => {
+  location.findOne({
+    where : {id:3}
+  })
+  .then(locations => {
+    console.log('raw LA info', locations.dataValues)
+    return res.render('los-angeles', {locations: locations.dataValues})
+  })
+  .catch(err=> {
+    console.log('Err', err);
+    res.render('no-result')
+  })
+})
+
+app.get('/los-angeles/edit/score', function(req,res){
+  life_score.findOne({
+    where: {locationId:3}
+  })
+  .then(life_scores=> {
+    return res.render ('los-angeles-score-edit', { life_scores: life_scores.dataValues })
+  })
+  .catch(err=> {
+    console.log('Err', err);
+    res.render('no-result')
+  })
+})
+
+app.get('/los-angeles/score', (req, res) => {
+  life_score.findOne({
+    where: {locationId:3}
+  })
+  .then(life_scores => {
+    console.log(life_scores.dataValues)
+    return res.render('los-angeles-score', {life_scores: life_scores.dataValues})
+  })
+  .catch(err=> {
+    console.log('Err', err);
+    res.render('no-result')
+  })
+})
+
+app.get('/los-angeles/salary', (req, res) => {
+  salary.findOne({
+    where: {locationId:3}
+  })
+  .then(salaries => {
+    console.log(salaries.dataValues)
+    return res.render('los-angeles-salary', {salaries: salaries.dataValues})
+  })
+  .catch(err=> {
+    console.log('Err', err);
+    res.render('no-result')
+  })
+})
+
+app.put('/los-angeles/edit/score', function(req,res) {
+  life_score.update(req.body, {
+    where: {locationId:3}
+  })
+  .then(numOfRowsChanged => {
+    console.log('Amount of rows changed', numOfRowsChanged)
+    res.redirect('/los-angeles/score')
+  })
+  .catch(err => console.log('Error', err));
+})
+
 app.use('/auth', require('./controllers/auth'));
 
 // Add this below /auth controllers
