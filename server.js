@@ -169,6 +169,20 @@ app.put('/new-york/edit/score', function(req,res) {
   .catch(err => console.log('Error', err));
 })
 
+app.delete('new-york/score', function(req, res) {
+  life_score.destroy({
+      where: { locationId:2 }
+  })
+  .then(numOfRowsDeleted => {
+      console.log('How many rows were deleted?', numOfRowsDeleted);
+      res.redirect('/new-york');
+  })
+  .catch(err => {
+      console.log('Error', err);
+      res.render('no-result');
+  })
+})
+
 // app.get('/miami', (req, res) => {
 //   axios.get('https://api.teleport.org/api/urban_areas/slug:miami/')
 //   .then(function (response) {
@@ -267,6 +281,20 @@ app.put('/miami/edit/score', function(req,res) {
   .catch(err => console.log('Error', err));
 })
 
+app.delete('miami/score', function(req, res) {
+  life_score.destroy({
+      where: { locationId:1 }
+  })
+  .then(numOfRowsDeleted => {
+      console.log('How many rows were deleted?', numOfRowsDeleted);
+      res.redirect('/miami');
+  })
+  .catch(err => {
+      console.log('Error', err);
+      res.render('no-result');
+  })
+})
+
 app.get('/los-angeles', (req, res) => {
   location.findOne({
     where : {id:3}
@@ -331,6 +359,20 @@ app.put('/los-angeles/edit/score', function(req,res) {
     res.redirect('/los-angeles/score')
   })
   .catch(err => console.log('Error', err));
+})
+
+app.delete('los-angeles/score', function(req, res) {
+  life_score.destroy({
+      where: { locationId:3 }
+  })
+  .then(numOfRowsDeleted => {
+      console.log('How many rows were deleted?', numOfRowsDeleted);
+      res.redirect('/los-angeles');
+  })
+  .catch(err => {
+      console.log('Error', err);
+      res.render('no-result');
+  })
 })
 
 app.use('/auth', require('./controllers/auth'));
