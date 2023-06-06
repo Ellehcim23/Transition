@@ -21,114 +21,111 @@
                 </div>
             </div>
         </div>
-<section class="section">
-    <div class="container">
-       <div class="columns is-desktop is-justify-content-center">
-          <div class="column is-8-desktop">
-             <div class="p-6 shadow rounded content">
-                <h2 class="section-title">Edit Life Scores</h2>   
-                <form method="POST" action="/new-york/edit/score/?_method=PUT">
-                   <div class="columns is-multiline">
-                      <div class="form-group column is-12">
-                         <label for="housing">Housing</label>
-                         <input value="<%= life_scores.housing %>" type="float" class="input" id="housing" name="housing" placeholder="<%= life_scores.housing %>"
-                            required>
-                      </div>
-                      <div class="form-group column is-12">
-                        <label for="cost_of_living">Cost of Living</label>
-                        <input value="<%= life_scores.cost_of_living %>"type="float" class="input" id="cost_of_living" name="cost_of_living" placeholder="<%= life_scores.cost_of_living %>"
+        <section class="section">
+         <div class="container">
+           <div class="row justify-content-center">
+             <div class="col-lg-8">
+               <div class="p-5 shadow rounded content">
+                 <h2 class="section-title">Edit Life Scores</h2>
+                 <form method="POST" action="/new-york/edit/score/?_method=PUT">
+                   <div class="form-row">
+                     <div class="form-group col-md-6">
+                        <label for="housing">Housing: </label>
+                        <input value="<%= life_scores.housing %>" type="float" class="input" id="housing" name="housing" placeholder="<%= life_scores.housing %>"
                            required>
                      </div>
-                     <div class="form-group column is-12">
-                        <label for="startups">Life Scores</label>
-                        <input value="<%= life_scores.startups %>" type="float" class="input" id="startups" name="startups" placeholder="<%= life_scores.startups %>"
-                           required>
-                     </div>
-                     <div class="form-group column is-12">
-                        <label for="venture_capital">Venture Capital</label>
-                        <input value="<%= life_scores.venture_capital %>" type="float" class="input" id="venture_capital" name="venture_capital" placeholder="<%= life_scores.venture_capital %>"
-                           required>
-                     </div>
-                     <div class="form-group column is-12">
-                        <label for="travel_connectivity">Travel Connectivity</label>
-                        <input value="<%= life_scores.travel_connectivity %>" type="float" class="input" id="travel_connectivity" name="travel_connectivity" placeholder="<%= life_scores.travel_connectivity %>"
-                           required>
-                     </div>
-                     <div class="form-group column is-12">
-                        <label for="business_freedom">Business Freedom</label>
-                        <input value="<%= life_scores.business_freedom %>" type="float" class="input" id="business_freedom" name="business_freedom" placeholder="<%= life_scores.business_freedom %>"
-                           required>
-                     </div>
-                     <div class="form-group column is-12">
-                        <label for="commute">Commute</label>
-                        <input value="<%= life_scores.commute %>" type="float" class="input" id="commute" name="commute" placeholder="<%= life_scores.commute %>"
-                           required>
-                     </div>
-                     <div class="form-group column is-12">
-                        <label for="safety">Safety</label>
-                        <input value="<%= life_scores.safety %>" type="float" class="input" id="safety" name="safety" placeholder="<%= life_scores.safety %>"
-                           required>
-                     </div>
-                     <div class="form-group column is-12">
-                        <label for="healthcare">Healthcare</label>
-                        <input value="<%= life_scores.healthcare %>" type="float" class="input" id="healthcare" name="healthcare" placeholder="<%= life_scores.healthcare %>"
-                           required>
-                     </div>
-                     <div class="form-group column is-12">
-                        <label for="education">Education</label>
-                        <input value="<%= life_scores.education %>" type="float" class="input" id="education" name="education" placeholder="<%= life_scores.education %>"
-                           required>
-                     </div>
-                     <div class="form-group column is-12">
-                        <label for="environmental_quality">Environmental Quality</label>
-                        <input value="<%= life_scores.environmental_quality %>" type="float" class="input" id="environmental_quality" name="environmental_quality" placeholder="<%= life_scores.environmental_quality %>"
-                           required>
-                     </div>
-                     <div class="form-group column is-12">
-                        <label for="economy">Economy</label>
-                        <input value="<%= life_scores.economy %>" type="float" class="input" id="economy" name="economy" placeholder="<%= life_scores.economy %>"
-                           required>
-                     </div>
-                     <div class="form-group column is-12">
-                        <label for="taxation">Taxation</label>
-                        <input value="<%= life_scores.taxation %>" type="float" class="input" id="taxation" name="taxation" placeholder="<%= life_scores.taxation %>"
-                           required>
-                     </div>
-                     <div class="form-group column is-12">
-                        <label for="internet_access">internet Access</label>
-                        <input value="<%= life_scores.internet_access %>" type="float" class="input" id="internet_access" name="internet_access" placeholder="<%= life_scores.internet_access %>"
-                           required>
-                     </div>
-                     <div class="form-group column is-12">
-                        <label for="culture">Culture</label>
-                        <input value="<%= life_scores.culture %>" type="float" class="input" id="culture" name="culture" placeholder="<%= life_scores.culture %>"
-                           required>
-                     </div>
-                     <div class="form-group column is-12">
-                        <label for="tolerance">Tolerance</label>
-                        <input value="<%= life_scores.tolerance %>" type="float" class="input" id="tolerance" name="tolerance" placeholder="<%= life_scores.tolerance %>"
-                           required>
-                     </div>
-                     <div class="form-group column is-12">
-                        <label for="outdoors">Outdoors</label>
-                        <input value="<%= life_scores.outdoors %>" type="float" class="input" id="outdoors" name="outdoors" placeholder="<%= life_scores.outdoors %>"
-                           required>
-                     </div>
-                     <div class="form-group column is-12">
-                        <label for="city_score">City Score</label>
-                        <input value="<%= life_scores.city_score %>" type="float" class="input" id="city_score" name="city_score" placeholder="<%= life_scores.city_score %>"
-                           required>
-                     </div>
-                      <div class="column is-12">
-                         <button type="submit" class="btn btn-primary">Submit</button>
-                         <a href="/new-york/score" class="btn btn-danger">Cancel</a>
-                      </div>
-                      <div class="column is-12"> 
-                      </div>
-                   </div>
-                </form>
+                     <div class="form-group col-md-6">
+                       <label for="cost_of_living">Cost of Living: </label>
+                       <input value="<%= life_scores.cost_of_living %>"type="float" class="input" id="cost_of_living" name="cost_of_living" placeholder="<%= life_scores.cost_of_living %>"
+                          required>
+                    </div>
+                    <div class="form-group col-md-6">
+                       <label for="startups">Life Scores: </label>
+                       <input value="<%= life_scores.startups %>" type="float" class="input" id="startups" name="startups" placeholder="<%= life_scores.startups %>"
+                          required>
+                    </div>
+                    <div class="form-group col-md-6">
+                       <label for="venture_capital">Venture Capital: </label>
+                       <input value="<%= life_scores.venture_capital %>" type="float" class="input" id="venture_capital" name="venture_capital" placeholder="<%= life_scores.venture_capital %>"
+                          required>
+                    </div>
+                    <div class="form-group col-md-6">
+                       <label for="travel_connectivity">Travel Connectivity: </label>
+                       <input value="<%= life_scores.travel_connectivity %>" type="float" class="input" id="travel_connectivity" name="travel_connectivity" placeholder="<%= life_scores.travel_connectivity %>"
+                          required>
+                    </div>
+                    <div class="form-group col-md-6">
+                       <label for="business_freedom">Business Freedom: </label>
+                       <input value="<%= life_scores.business_freedom %>" type="float" class="input" id="business_freedom" name="business_freedom" placeholder="<%= life_scores.business_freedom %>"
+                          required>
+                    </div>
+                    <div class="form-group col-md-6">
+                       <label for="commute">Commute: </label>
+                       <input value="<%= life_scores.commute %>" type="float" class="input" id="commute" name="commute" placeholder="<%= life_scores.commute %>"
+                          required>
+                    </div>
+                    <div class="form-group col-md-6">
+                       <label for="safety">Safety: </label>
+                       <input value="<%= life_scores.safety %>" type="float" class="input" id="safety" name="safety" placeholder="<%= life_scores.safety %>"
+                          required>
+                    </div>
+                    <div class="form-group col-md-6">
+                       <label for="healthcare">Healthcare: </label>
+                       <input value="<%= life_scores.healthcare %>" type="float" class="input" id="healthcare" name="healthcare" placeholder="<%= life_scores.healthcare %>"
+                          required>
+                    </div>
+                    <div class="form-group col-md-6">
+                       <label for="education">Education: </label>
+                       <input value="<%= life_scores.education %>" type="float" class="input" id="education" name="education" placeholder="<%= life_scores.education %>"
+                          required>
+                    </div>
+                    <div class="form-group col-md-6">
+                       <label for="environmental_quality">Environmental Quality: </label>
+                       <input value="<%= life_scores.environmental_quality %>" type="float" class="input" id="environmental_quality" name="environmental_quality" placeholder="<%= life_scores.environmental_quality %>"
+                          required>
+                    </div>
+                    <div class="form-group col-md-6">
+                       <label for="economy">Economy: </label>
+                       <input value="<%= life_scores.economy %>" type="float" class="input" id="economy" name="economy" placeholder="<%= life_scores.economy %>"
+                          required>
+                    </div>
+                    <div class="form-group col-md-6">
+                       <label for="taxation">Taxation: </label>
+                       <input value="<%= life_scores.taxation %>" type="float" class="input" id="taxation" name="taxation" placeholder="<%= life_scores.taxation %>"
+                          required>
+                    </div>
+                    <div class="form-group col-md-6">
+                       <label for="internet_access">Internet Access: </label>
+                       <input value="<%= life_scores.internet_access %>" type="float" class="input" id="internet_access" name="internet_access" placeholder="<%= life_scores.internet_access %>"
+                          required>
+                    </div>
+                    <div class="form-group col-md-6">
+                       <label for="culture">Culture: </label>
+                       <input value="<%= life_scores.culture %>" type="float" class="input" id="culture" name="culture" placeholder="<%= life_scores.culture %>"
+                          required>
+                    </div>
+                    <div class="form-group col-md-6">
+                       <label for="tolerance">Tolerance: </label>
+                       <input value="<%= life_scores.tolerance %>" type="float" class="input" id="tolerance" name="tolerance" placeholder="<%= life_scores.tolerance %>"
+                          required>
+                    </div>
+                    <div class="form-group col-md-6">
+                       <label for="outdoors">Outdoors: </label>
+                       <input value="<%= life_scores.outdoors %>" type="float" class="input" id="outdoors" name="outdoors" placeholder="<%= life_scores.outdoors %>"
+                          required>
+                    </div>
+                    <div class="form-group col-md-6">
+                       <label for="city_score">City Score: </label>
+                       <input value="<%= life_scores.city_score %>" type="float" class="input" id="city_score" name="city_score" placeholder="<%= life_scores.city_score %>"
+                          required>
+                    </div>
+                   <div class="column is-12">
+                     <button type="submit" class="btn btn-primary">Submit</button>
+                     <a href="/new-york/score" class="btn btn-danger">Cancel</a>
+                  </div>
+                 </form>
+               </div>
              </div>
-          </div>
-       </div>
-    </div>
- </section>
+           </div>
+         </div>
+       </section>

@@ -1,0 +1,65 @@
+<header class="masthead" style="background-image: url('/Miami-2-image.avif')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="page-heading">
+                    <h1 class="locations">New York City</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col-auto px-0">
+            <div id="sidebar" class="collapse collapse-horizontal show border-end">
+                <div id="sidebar-nav" class="list-group border-0 rounded-0 text-sm-start min-vh-100">
+                    <a href="/new-york" class="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i class="bi bi-bootstrap"></i> <span>Overview</span> </a>
+                    <a href="/new-york/score" class="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i class="bi bi-film"></i> <span>City Scores</span></a>
+                    <a href="/new-york/edit/score" class="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i class="bi bi-film"></i> <span>Edit Scores</span></a>
+                    <a href="/new-york/salary" class="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i class="bi bi-heart"></i> <span>City Salaries</span></a>
+                    <a href="/new-york/gallery" class="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i class="bi bi-heart"></i> <span>City Gallery</span></a>
+                </div>
+            </div>
+        </div>
+  <section class="section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="p-5 shadow rounded content">
+            <h2 class="section-title">Add Your Own Images</h2>
+            <form method="POST" action="/new-york/gallery/new">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="img_address">Image Address</label>
+                    <input type="text" class="form-control" id="img_address" name="img_address" placeholder="Image address here" required>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="img_title">Title</label>
+                    <input type="text" class="form-control" id="img_title" name="img_title" placeholder="Your Image Title">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="img_description">Description</label>
+                  <input type="text" class="form-control" id="img_description" name="img_description" placeholder="Add your description"
+                    required>
+                </div>
+                <div class="form-group">
+                    <label for="locationId">Location</label>
+                    <select id="locationId" class="form-control custom-select" name="locationId" required>
+                      <option selected disabled>New York</option>
+                      <option value="2">New York</option>
+                    </select>
+                </div>
+              <div class="column is-12">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <a href="/new-york/gallery" class="btn btn-danger">Cancel</a>
+             </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+</div>

@@ -9,7 +9,7 @@ const isLoggedIn = require('./middleware/isLoggedIn');
 const app = express();
 const methodOverride = require('method-override');
 const { json } = require('sequelize');
-const {location , life_score, salary} = require('./models')
+const {location , life_score, salary, image} = require('./models')
 
 
 // Environment variables 
@@ -158,6 +158,29 @@ app.get('/new-york/salary', (req, res) => {
   })
 })
 
+app.get('/new-york/gallery', (req, res) => {
+  // res.json({msg: 'Hello'})
+  return res.render('new-york-gallery');
+})
+
+app.get('/new-york/gallery/new', (req, res) => {
+  return res.render('new-york-gallery-new');
+})
+
+app.post('/new-york/gallery/new', (req, res) => {
+  const newImage = {...req.body}
+  newImage.locationId = parseInt(req.body.locationId)
+  image.create(newImage)
+  .then(createdImage => {
+    console.log('created image', createdImage.toJSON())
+    res.redirect('/new-york/gallery');
+  })
+  .catch(err => {
+    console.log('Err', err);
+    res.render('no-result') 
+  })
+})
+
 app.put('/new-york/edit/score', function(req,res) {
   life_score.update(req.body, {
     where: {locationId:2}
@@ -169,7 +192,7 @@ app.put('/new-york/edit/score', function(req,res) {
   .catch(err => console.log('Error', err));
 })
 
-app.delete('new-york/score', function(req, res) {
+app.delete('/new-york/score', function(req, res) {
   life_score.destroy({
       where: { locationId:2 }
   })
@@ -270,6 +293,30 @@ app.get('/miami/salary', (req, res) => {
   })
 })
 
+app.get('/miami/gallery', (req, res) => {
+  // res.json({msg: 'Hello'})
+  return res.render('miami-gallery');
+})
+
+app.get('/miami/gallery/new', (req, res) => {
+  return res.render('miami-gallery-new');
+})
+
+app.post('/miami/gallery/new', (req, res) => {
+  const newImage = {...req.body}
+  newImage.locationId = parseInt(req.body.locationId)
+  console.log(newImage)
+  image.create(newImage)
+  .then(createdImage => {
+    console.log('created image', createdImage.toJSON())
+    res.redirect('/miami/gallery');
+  })
+  .catch(err => {
+    console.log('Err', err);
+    res.render('no-result') 
+  })
+})
+
 app.put('/miami/edit/score', function(req,res) {
   life_score.update(req.body, {
     where: {locationId:1}
@@ -281,7 +328,7 @@ app.put('/miami/edit/score', function(req,res) {
   .catch(err => console.log('Error', err));
 })
 
-app.delete('miami/score', function(req, res) {
+app.delete('/miami/score', function(req, res) {
   life_score.destroy({
       where: { locationId:1 }
   })
@@ -350,6 +397,31 @@ app.get('/los-angeles/salary', (req, res) => {
   })
 })
 
+app.get('/los-angeles/gallery', (req, res) => {
+  // res.json({msg: 'Hello'})
+  return res.render('los-angeles-gallery');
+})
+
+app.get('/los-angeles/gallery/new', (req, res) => {
+  return res.render('los-angeles-gallery-new');
+})
+
+app.post('/los-angeles/gallery/new', (req, res) => {
+  const newImage = {...req.body}
+  newImage.locationId = parseInt(req.body.locationId)
+  console.log(newImage)
+
+  image.create(newImage)
+  .then(createdImage => {
+    console.log('created image', createdImage.toJSON())
+    res.redirect('/los-angeles/gallery');
+  })
+  .catch(err => {
+    console.log('Err', err);
+    res.render('no-result') 
+  })
+})
+
 app.put('/los-angeles/edit/score', function(req,res) {
   life_score.update(req.body, {
     where: {locationId:3}
@@ -361,7 +433,7 @@ app.put('/los-angeles/edit/score', function(req,res) {
   .catch(err => console.log('Error', err));
 })
 
-app.delete('los-angeles/score', function(req, res) {
+app.delete('/los-angeles/score', function(req, res) {
   life_score.destroy({
       where: { locationId:3 }
   })
