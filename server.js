@@ -50,7 +50,7 @@ app.use((req, res, next) => {
 // .summary 
 // res.json ({data: response.data.salaries})
 app.get('/', (req, res) => {
-  axios.get('https://api.teleport.org/api/urban_areas/slug:new-york/salaries/')
+  axios.get('https://api.teleport.org/api/urban_areas/')
   .then(function (response) {
     console.log(response.data) // use in conjuction with /scores to get info on each score category
     res.render('index')
@@ -83,138 +83,139 @@ app.get('/contact', function (req, res) {
 //   });
 // })
 
-app.get('/new-york', (req, res) => {
-  location.findOne({
-    where : {id:3}
-  })
-  .then(locations => {
-    console.log('raw New York info', locations.dataValues)
-    return res.render('new-york', {locations: locations.dataValues})
-  })
-  .catch(err=> {
-    console.log('Err', err);
-    res.render('no-result')
-  })
-})
-
-app.get('/new-york/edit/score', function(req,res){
-  life_score.findOne({
-    where: {locationId:3}
-  })
-  .then(life_scores=> {
-    return res.render ('new-york-score-edit', { life_scores: life_scores.dataValues })
-  })
-  .catch(err=> {
-    console.log('Err', err);
-    res.render('no-result')
-  })
-})
-// app.get('/new-york/scores', (req, res) => {
-//   axios.get('https://api.teleport.org/api/urban_areas/slug:new-york/scores/')
-//   .then(function (response) {
-//     console.log(response.data.categories)
-//     res.json ({data: response.data.categories})
+// app.get('/new-york', (req, res) => {
+//   location.findOne({
+//     where : {id:3}
 //   })
-//   .catch(function (error) {
-//     res.json({ message: 'Data not found. Please try again later.' });
-//   });
+//   .then(locations => {
+//     console.log('raw New York info', locations.dataValues)
+//     return res.render('new-york', {locations: locations.dataValues})
+//   })
+//   .catch(err=> {
+//     console.log('Err', err);
+//     res.render('no-result')
+//   })
 // })
-app.get('/new-york/score', (req, res) => {
-  life_score.findOne({
-    where: {locationId:3}
-  })
-  .then(life_scores => {
-    console.log(life_scores.dataValues)
-    return res.render('new-york-score', {life_scores: life_scores.dataValues})
-  })
-  .catch(err=> {
-    console.log('Err', err);
-    res.render('no-result')
-  })
-})
+
+// app.get('/new-york/edit/score', function(req,res){
+//   life_score.findOne({
+//     where: {locationId:3}
+//   })
+//   .then(life_scores=> {
+//     return res.render ('new-york-score-edit', { life_scores: life_scores.dataValues })
+//   })
+//   .catch(err=> {
+//     console.log('Err', err);
+//     res.render('no-result')
+//   })
+// })
+// // app.get('/new-york/scores', (req, res) => {
+// //   axios.get('https://api.teleport.org/api/urban_areas/slug:new-york/scores/')
+// //   .then(function (response) {
+// //     console.log(response.data.categories)
+// //     res.json ({data: response.data.categories})
+// //   })
+// //   .catch(function (error) {
+// //     res.json({ message: 'Data not found. Please try again later.' });
+// //   });
+// // })
+// app.get('/new-york/score', (req, res) => {
+//   life_score.findOne({
+//     where: {locationId:3}
+//   })
+//   .then(life_scores => {
+//     console.log(life_scores.dataValues)
+//     return res.render('new-york-score', {life_scores: life_scores.dataValues})
+//   })
+//   .catch(err=> {
+//     console.log('Err', err);
+//     res.render('no-result')
+//   })
+// })
+
+// // app.get('/new-york/salary', (req, res) => {
+// //   axios.get('https://api.teleport.org/api/urban_areas/slug:new-york/salaries/')
+// //   .then(function (response) {
+// //     console.log(response.data.salaries)
+// //     res.json ({data: response.data.salaries})
+// //   })
+// //   .catch(function (error) {
+// //     res.json({ message: 'Data not found. Please try again later.' });
+// //   });
+// // })
 
 // app.get('/new-york/salary', (req, res) => {
-//   axios.get('https://api.teleport.org/api/urban_areas/slug:new-york/salaries/')
-//   .then(function (response) {
-//     console.log(response.data.salaries)
-//     res.json ({data: response.data.salaries})
+//   salary.findOne({
+//     where: {locationId:3}
 //   })
-//   .catch(function (error) {
-//     res.json({ message: 'Data not found. Please try again later.' });
-//   });
+//   .then(salaries => {
+//     console.log(salaries.dataValues)
+//     return res.render('new-york-salary', {salaries: salaries.dataValues})
+//   })
+//   .catch(err=> {
+//     console.log('Err', err);
+//     res.render('no-result')
+//   })
 // })
 
-app.get('/new-york/salary', (req, res) => {
-  salary.findOne({
-    where: {locationId:3}
-  })
-  .then(salaries => {
-    console.log(salaries.dataValues)
-    return res.render('new-york-salary', {salaries: salaries.dataValues})
-  })
-  .catch(err=> {
-    console.log('Err', err);
-    res.render('no-result')
-  })
-})
+// app.get('/new-york/gallery', (req, res) => {
+//   image.findAll({
+//     where: { locationId:2 }
+//   })
+//   .then(images => {
+//     const cleaned_images = images.map(c => c.toJSON())
+//     console.log("Images", cleaned_images)
+//     return res.render('new-york-gallery', {images: cleaned_images});
+//   })
+//   .catch(err=> {
+//     console.log('Err', err);
+//     res.render('no-result')
+//   })
+// })
 
-app.get('/new-york/gallery', (req, res) => {
-  image.findAll({
-    where: { locationId:2 }
-  })
-  .then(images => {
-    const cleaned_images = images.map(c => c.toJSON())
-    console.log("Images", cleaned_images)
-    return res.render('new-york-gallery', {images: cleaned_images});
-  })
-  .catch(err=> {
-    console.log('Err', err);
-    res.render('no-result')
-  })
-})
+// app.get('/new-york/gallery/new', (req, res) => {
+//   return res.render('new-york-gallery-new');
+// })
 
-app.get('/new-york/gallery/new', (req, res) => {
-  return res.render('new-york-gallery-new');
-})
+// app.post('/new-york/gallery/new', (req, res) => {
+//   const newImage = {...req.body}
+//   newImage.locationId = parseInt(req.body.locationId)
+//   image.create(newImage)
+//   .then(createdImage => {
+//     console.log('created image', createdImage.toJSON())
+//     res.redirect('/new-york/gallery');
+//   })
+//   .catch(err => {
+//     console.log('Err', err);
+//     res.render('no-result') 
+//   })
+// })
 
-app.post('/new-york/gallery/new', (req, res) => {
-  const newImage = {...req.body}
-  newImage.locationId = parseInt(req.body.locationId)
-  image.create(newImage)
-  .then(createdImage => {
-    console.log('created image', createdImage.toJSON())
-    res.redirect('/new-york/gallery');
-  })
-  .catch(err => {
-    console.log('Err', err);
-    res.render('no-result') 
-  })
-})
+// app.put('/new-york/edit/score', function(req,res) {
+//   life_score.update(req.body, {
+//     where: {locationId:3}
+//   })
+//   .then(numOfRowsChanged => {
+//     console.log('Amount of rows changed', numOfRowsChanged)
+//     res.redirect('/new-york/score')
+//   })
+//   .catch(err => console.log('Error', err));
+// })
 
-app.put('/new-york/edit/score', function(req,res) {
-  life_score.update(req.body, {
-    where: {locationId:3}
-  })
-  .then(numOfRowsChanged => {
-    console.log('Amount of rows changed', numOfRowsChanged)
-    res.redirect('/new-york/score')
-  })
-  .catch(err => console.log('Error', err));
-})
-
-app.delete('/new-york/score', function(req, res) {
-  life_score.destroy({
-      where: { locationId:3 }
-  })
-  .then(numOfRowsDeleted => {
-      console.log('How many rows were deleted?', numOfRowsDeleted);
-      res.redirect('/new-york');
-  })
-  .catch(err => {
-      console.log('Error', err);
-      res.render('no-result');
-  })
-})
+// app.delete('/new-york/:id', function(req, res) {
+//   console.log("params", req.params)
+//   image.destroy({
+//       where: { id: parseInt(req.params.id) }
+//   })
+//   .then(numOfRowsDeleted => {
+//       console.log('How many rows were deleted?', numOfRowsDeleted);
+//       res.redirect('/new-york/gallery');
+//   })
+//   .catch(err => {
+//       console.log('Error', err);
+//       res.render('no-result');
+//   })
+// })
 
 // app.get('/miami', (req, res) => {
 //   axios.get('https://api.teleport.org/api/urban_areas/slug:miami/')
@@ -227,257 +228,263 @@ app.delete('/new-york/score', function(req, res) {
 //     res.json({ message: 'Data not found. Please try again later.' });
 //   });
 // })
-app.get('/miami', (req, res) => {
-  location.findOne({
-    where : {id:1}
-  })
-  .then(locations => {
-    return res.render('miami', {locations: locations.dataValues})
-  })
-  .catch(err=> {
-    console.log('Err', err);
-    res.render('no-result')
-  })
-})
-
-app.get('/miami/edit/score', function(req,res){
-  life_score.findOne({
-    where: {locationId:1}
-  })
-  .then(life_scores=> {
-    return res.render ('miami-score-edit', { life_scores: life_scores.dataValues })
-  })
-  .catch(err=> {
-    console.log('Err', err);
-    res.render('no-result')
-  })
-})
-
-// app.get('/miami/scores', (req, res) => {
-//   axios.get('https://api.teleport.org/api/urban_areas/slug:miami/scores/')
-//   .then(function (response) {
-//     console.log(response.data.categories)
-//     res.json ({data: response.data.categories})
+// app.get('/miami', (req, res) => {
+//   location.findOne({
+//     where : {id:1}
 //   })
-//   .catch(function (error) {
-//     res.json({ message: 'Data not found. Please try again later.' });
-//   });
+//   .then(locations => {
+//     return res.render('miami', {locations: locations.dataValues})
+//   })
+//   .catch(err=> {
+//     console.log('Err', err);
+//     res.render('no-result')
+//   })
 // })
 
-app.get('/miami/score', (req, res) => {
-  life_score.findOne({
-    where: {locationId:1}
-  })
-  .then(life_scores => {
-    console.log(life_scores.dataValues)
-    return res.render('miami-score', {life_scores: life_scores.dataValues})
-  })
-  .catch(err=> {
-    console.log('Err', err);
-    res.render('no-result')
-  })
-})
-
-// app.get('/miami/salaries', (req, res) => {
-//   axios.get('https://api.teleport.org/api/urban_areas/slug:miami/salaries/')
-//   .then(function (response) {
-//     console.log(response.data.salaries)
-//     res.json ({data: response.data.salaries})
+// app.get('/miami/edit/score', function(req,res){
+//   life_score.findOne({
+//     where: {locationId:1}
 //   })
-//   .catch(function (error) {
-//     res.json({ message: 'Data not found. Please try again later.' });
-//   });
+//   .then(life_scores=> {
+//     return res.render ('miami-score-edit', { life_scores: life_scores.dataValues })
+//   })
+//   .catch(err=> {
+//     console.log('Err', err);
+//     res.render('no-result')
+//   })
 // })
 
-app.get('/miami/salary', (req, res) => {
-  salary.findOne({
-    where: {locationId:1}
-  })
-  .then(salaries => {
-    console.log(salaries.dataValues)
-    return res.render('miami-salary', {salaries: salaries.dataValues})
-  })
-  .catch(err=> {
-    console.log('Err', err);
-    res.render('no-result')
-  })
-})
+// // app.get('/miami/scores', (req, res) => {
+// //   axios.get('https://api.teleport.org/api/urban_areas/slug:miami/scores/')
+// //   .then(function (response) {
+// //     console.log(response.data.categories)
+// //     res.json ({data: response.data.categories})
+// //   })
+// //   .catch(function (error) {
+// //     res.json({ message: 'Data not found. Please try again later.' });
+// //   });
+// // })
 
-app.get('/miami/gallery', (req, res) => {
-  image.findAll({
-    where: { locationId:1 }
-  })
-  .then(images => {
-    const cleaned_images = images.map(c => c.toJSON())
-    console.log("Images", cleaned_images)
-    return res.render('miami-gallery', {images: cleaned_images});
-  })
-  .catch(err=> {
-    console.log('Err', err);
-    res.render('no-result')
-  })
-})
+// app.get('/miami/score', (req, res) => {
+//   life_score.findOne({
+//     where: {locationId:1}
+//   })
+//   .then(life_scores => {
+//     console.log(life_scores.dataValues)
+//     return res.render('miami-score', {life_scores: life_scores.dataValues})
+//   })
+//   .catch(err=> {
+//     console.log('Err', err);
+//     res.render('no-result')
+//   })
+// })
 
-app.get('/miami/gallery/new', (req, res) => {
-  return res.render('miami-gallery-new');
-})
+// // app.get('/miami/salaries', (req, res) => {
+// //   axios.get('https://api.teleport.org/api/urban_areas/slug:miami/salaries/')
+// //   .then(function (response) {
+// //     console.log(response.data.salaries)
+// //     res.json ({data: response.data.salaries})
+// //   })
+// //   .catch(function (error) {
+// //     res.json({ message: 'Data not found. Please try again later.' });
+// //   });
+// // })
 
-app.post('/miami/gallery/new', (req, res) => {
-  const newImage = {...req.body}
-  newImage.locationId = parseInt(req.body.locationId)
-  console.log(newImage)
-  image.create(newImage)
-  .then(createdImage => {
-    console.log('created image', createdImage.toJSON())
-    res.redirect('/miami/gallery');
-  })
-  .catch(err => {
-    console.log('Err', err);
-    res.render('no-result') 
-  })
-})
+// app.get('/miami/salary', (req, res) => {
+//   salary.findOne({
+//     where: {locationId:1}
+//   })
+//   .then(salaries => {
+//     console.log(salaries.dataValues)
+//     return res.render('miami-salary', {salaries: salaries.dataValues})
+//   })
+//   .catch(err=> {
+//     console.log('Err', err);
+//     res.render('no-result')
+//   })
+// })
 
-app.put('/miami/edit/score', function(req,res) {
-  life_score.update(req.body, {
-    where: {locationId:1}
-  })
-  .then(numOfRowsChanged => {
-    console.log('Amount of rows changed', numOfRowsChanged)
-    res.redirect('/miami/score')
-  })
-  .catch(err => console.log('Error', err));
-})
+// app.get('/miami/gallery', (req, res) => {
+//   image.findAll({
+//     where: { locationId:1 }
+//   })
+//   .then(images => {
+//     const cleaned_images = images.map(c => c.toJSON())
+//     console.log("Images", cleaned_images)
+//     return res.render('miami-gallery', {images: cleaned_images});
+//   })
+//   .catch(err=> {
+//     console.log('Err', err);
+//     res.render('no-result')
+//   })
+// })
 
-app.delete('/miami/score', function(req, res) {
-  life_score.destroy({
-      where: { locationId:1 }
-  })
-  .then(numOfRowsDeleted => {
-      console.log('How many rows were deleted?', numOfRowsDeleted);
-      res.redirect('/miami');
-  })
-  .catch(err => {
-      console.log('Error', err);
-      res.render('no-result');
-  })
-})
+// app.get('/miami/gallery/new', (req, res) => {
+//   return res.render('miami-gallery-new');
+// })
 
-app.get('/los-angeles', (req, res) => {
-  location.findOne({
-    where : {id:2}
-  })
-  .then(locations => {
-    console.log('raw LA info', locations.dataValues)
-    return res.render('los-angeles', {locations: locations.dataValues})
-  })
-  .catch(err=> {
-    console.log('Err', err);
-    res.render('no-result')
-  })
-})
+// app.post('/miami/gallery/new', (req, res) => {
+//   const newImage = {...req.body}
+//   newImage.locationId = parseInt(req.body.locationId)
+//   console.log(newImage)
+//   image.create(newImage)
+//   .then(createdImage => {
+//     console.log('created image', createdImage.toJSON())
+//     res.redirect('/miami/gallery');
+//   })
+//   .catch(err => {
+//     console.log('Err', err);
+//     res.render('no-result') 
+//   })
+// })
 
-app.get('/los-angeles/edit/score', function(req,res){
-  life_score.findOne({
-    where: {locationId:2}
-  })
-  .then(life_scores=> {
-    return res.render ('los-angeles-score-edit', { life_scores: life_scores.dataValues })
-  })
-  .catch(err=> {
-    console.log('Err', err);
-    res.render('no-result')
-  })
-})
+// app.put('/miami/edit/score', function(req,res) {
+//   life_score.update(req.body, {
+//     where: {locationId:1}
+//   })
+//   .then(numOfRowsChanged => {
+//     console.log('Amount of rows changed', numOfRowsChanged)
+//     res.redirect('/miami/score')
+//   })
+//   .catch(err => console.log('Error', err));
+// })
 
-app.get('/los-angeles/score', (req, res) => {
-  life_score.findOne({
-    where: {locationId:2}
-  })
-  .then(life_scores => {
-    console.log(life_scores.dataValues)
-    return res.render('los-angeles-score', {life_scores: life_scores.dataValues})
-  })
-  .catch(err=> {
-    console.log('Err', err);
-    res.render('no-result')
-  })
-})
+// app.delete('/miami/:id', function(req, res) {
+//   console.log("params", req.params)
+//   image.destroy({
+//       where: { id: parseInt(req.params.id) }
+//   })
+//   .then(numOfRowsDeleted => {
+//       console.log('How many rows were deleted?', numOfRowsDeleted);
+//       res.redirect('/miami/gallery');
+//   })
+//   .catch(err => {
+//       console.log('Error', err);
+//       res.render('no-result');
+//   })
+// })
 
-app.get('/los-angeles/salary', (req, res) => {
-  salary.findOne({
-    where: {locationId:2}
-  })
-  .then(salaries => {
-    console.log(salaries.dataValues)
-    return res.render('los-angeles-salary', {salaries: salaries.dataValues})
-  })
-  .catch(err=> {
-    console.log('Err', err);
-    res.render('no-result')
-  })
-})
+// app.get('/los-angeles', (req, res) => {
+//   location.findOne({
+//     where : {id:2}
+//   })
+//   .then(locations => {
+//     console.log('raw LA info', locations.dataValues)
+//     return res.render('los-angeles', {locations: locations.dataValues})
+//   })
+//   .catch(err=> {
+//     console.log('Err', err);
+//     res.render('no-result')
+//   })
+// })
 
-app.get('/los-angeles/gallery', (req, res) => {
-  image.findAll({
-    where: { locationId:2 }
-  })
-  .then(images => {
-    const cleaned_images = images.map(c => c.toJSON())
-    console.log("Images", cleaned_images)
-    return res.render('los-angeles-gallery', {images: cleaned_images});
-  })
-  .catch(err=> {
-    console.log('Err', err);
-    res.render('no-result')
-  })
-})
+// app.get('/los-angeles/edit/score', function(req,res){
+//   life_score.findOne({
+//     where: {locationId:2}
+//   })
+//   .then(life_scores=> {
+//     return res.render ('los-angeles-score-edit', { life_scores: life_scores.dataValues })
+//   })
+//   .catch(err=> {
+//     console.log('Err', err);
+//     res.render('no-result')
+//   })
+// })
 
-app.get('/los-angeles/gallery/new', (req, res) => {
-  return res.render('los-angeles-gallery-new');
-})
+// app.get('/los-angeles/score', (req, res) => {
+//   life_score.findOne({
+//     where: {locationId:2}
+//   })
+//   .then(life_scores => {
+//     console.log(life_scores.dataValues)
+//     return res.render('los-angeles-score', {life_scores: life_scores.dataValues})
+//   })
+//   .catch(err=> {
+//     console.log('Err', err);
+//     res.render('no-result')
+//   })
+// })
 
-app.post('/los-angeles/gallery/new', (req, res) => {
-  const newImage = {...req.body}
-  newImage.locationId = parseInt(req.body.locationId)
-  console.log(newImage)
+// app.get('/los-angeles/salary', (req, res) => {
+//   salary.findOne({
+//     where: {locationId:2}
+//   })
+//   .then(salaries => {
+//     console.log(salaries.dataValues)
+//     return res.render('los-angeles-salary', {salaries: salaries.dataValues})
+//   })
+//   .catch(err=> {
+//     console.log('Err', err);
+//     res.render('no-result')
+//   })
+// })
 
-  image.create(newImage)
-  .then(createdImage => {
-    console.log('created image', createdImage.toJSON())
-    res.redirect('/los-angeles/gallery');
-  })
-  .catch(err => {
-    console.log('Err', err);
-    res.render('no-result') 
-  })
-})
+// app.get('/los-angeles/gallery', (req, res) => {
+//   image.findAll({
+//     where: { locationId:2 }
+//   })
+//   .then(images => {
+//     const cleaned_images = images.map(c => c.toJSON())
+//     console.log("Images", cleaned_images)
+//     return res.render('los-angeles-gallery', {images: cleaned_images});
+//   })
+//   .catch(err=> {
+//     console.log('Err', err);
+//     res.render('no-result')
+//   })
+// })
 
-app.put('/los-angeles/edit/score', function(req,res) {
-  life_score.update(req.body, {
-    where: {locationId:2}
-  })
-  .then(numOfRowsChanged => {
-    console.log('Amount of rows changed', numOfRowsChanged)
-    res.redirect('/los-angeles/score')
-  })
-  .catch(err => console.log('Error', err));
-})
+// app.get('/los-angeles/gallery/new', (req, res) => {
+//   return res.render('los-angeles-gallery-new');
+// })
 
-app.delete('/los-angeles/score', function(req, res) {
-  life_score.destroy({
-      where: { locationId:2 }
-  })
-  .then(numOfRowsDeleted => {
-      console.log('How many rows were deleted?', numOfRowsDeleted);
-      res.redirect('/los-angeles');
-  })
-  .catch(err => {
-      console.log('Error', err);
-      res.render('no-result');
-  })
-})
+// app.post('/los-angeles/gallery/new', (req, res) => {
+//   const newImage = {...req.body}
+//   newImage.locationId = parseInt(req.body.locationId)
+//   console.log(newImage)
+
+//   image.create(newImage)
+//   .then(createdImage => {
+//     console.log('created image', createdImage.toJSON())
+//     res.redirect('/los-angeles/gallery');
+//   })
+//   .catch(err => {
+//     console.log('Err', err);
+//     res.render('no-result') 
+//   })
+// })
+
+// app.put('/los-angeles/edit/score', function(req,res) {
+//   life_score.update(req.body, {
+//     where: {locationId:2}
+//   })
+//   .then(numOfRowsChanged => {
+//     console.log('Amount of rows changed', numOfRowsChanged)
+//     res.redirect('/los-angeles/score')
+//   })
+//   .catch(err => console.log('Error', err));
+// })
+
+// app.delete('/los-angeles/:id', function(req, res) {
+//   console.log("params", req.params)
+//   image.destroy({
+//       where: { id: parseInt(req.params.id) }
+//   })
+//   .then(numOfRowsDeleted => {
+//       console.log('How many rows were deleted?', numOfRowsDeleted);
+//       res.redirect('/los-angeles/gallery');
+//   })
+//   .catch(err => {
+//       console.log('Error', err);
+//       res.render('no-result');
+//   })
+// })
+
 
 app.use('/auth', require('./controllers/auth'));
+app.use('/miami', require('./controllers/miami'));
+app.use('/new-york', require('./controllers/new-york'));
+app.use('/los-angeles', require('./controllers/los-angeles'));
 
 // Add this below /auth controllers
 app.get('/profile', isLoggedIn, (req, res) => {
@@ -494,4 +501,8 @@ const server = app.listen(PORT, () => {
   console.log(`🎧 You're listening to the smooth sounds of port ${PORT} 🎧`);
 });
 
-module.exports = server;
+module.exports = { 
+  server,
+  app,
+  PORT
+}

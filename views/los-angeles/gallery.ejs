@@ -1,0 +1,85 @@
+<header class="masthead" style="background-image: url('/los-angeles-2.jpeg')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="page-heading">
+                    <h1 class="locations">Los Angeles</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col-auto px-0">
+            <div id="sidebar" class="collapse collapse-horizontal show border-end">
+                <div id="sidebar-nav" class="list-group border-0 rounded-0 text-sm-start min-vh-100">
+                    <a href="/los-angeles" class="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i class="bi bi-bootstrap"></i> <span>Overview</span> </a>
+                    <a href="/los-angeles/score" class="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i class="bi bi-film"></i> <span>City Scores</span></a>
+                    <a href="/los-angeles/edit/score" class="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i class="bi bi-film"></i> <span>Edit Scores</span></a>
+                    <a href="/los-angeles/salary" class="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i class="bi bi-heart"></i> <span>City Salaries</span></a>
+                    <a href="/los-angeles/gallery" class="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i class="bi bi-heart"></i> <span>City Gallery</span></a>
+                </div>
+            </div>
+        </div>
+        <main class="col ps-md-2 pt-2">
+            <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" class="border rounded-3 p-1 text-decoration-none"><i class="bi bi-list bi-lg py-2 p-1"></i> Menu</a>
+            <div class="page-header pt-3">
+                <h2>Los Angeles</h2>
+            </div>
+            <p class="lead">Gallery</p>
+            <hr>
+            <!-- Carousel wrapper -->
+<div
+id="carouselMultiItemExample"
+class="carousel slide carousel-dark text-center"
+data-mdb-ride="carousel"
+>
+
+<!-- Inner -->
+<div class="carousel-inner py-4">
+  <!-- Single item -->
+  <div class="carousel-item active">
+    <div class="container">
+
+    </div>
+  </div>
+  <div class="d-flex justify-content-center">
+        
+    <div class="col">
+      <% for( let i = 0; i < images.length; i++ ) { %>
+        <% let cleanedImage = images[i] %>
+        <div class="card">
+        <img
+          src="<%= cleanedImage.img_address %>"
+          class="card-img-top"
+          alt="Waterfall"
+        />
+        <div class="card-body">
+          <h5 class="card-title"><%= cleanedImage.img_title %></h5>
+          <p class="card-text">
+            <%= cleanedImage.img_description %>
+          </p>
+          <form  method="POST" action="/los-angeles/<%= cleanedImage.id %>?_method=DELETE">
+            <input class="button is-danger" type="submit" value="Delete">
+        </form>
+      </div>
+    </div>
+    <% } %>
+    </div>
+  </div>
+
+  <!-- Single item -->
+
+</div>
+<!-- Controls -->
+<div class="d-flex justify-content-center mb-4">
+    <a href="/los-angeles/gallery/new" class="btn btn-primary"> Add Your Own Images</a>
+  </div>
+<!-- Inner -->
+</div>
+<!-- Carousel wrapper -->
+            
+        </main> 
+    </div>   
+</div>

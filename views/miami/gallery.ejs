@@ -41,89 +41,34 @@ data-mdb-ride="carousel"
   <!-- Single item -->
   <div class="carousel-item active">
     <div class="container">
-      <div class="row">
-
-        <% function creatRandomIndexes(length) { %>
-        <% let indexes = Array.from({ length }, (_, i) => i) %>
-        <% for( let i = length - 1; i > 0; i-- ) { %>
-            <% let randomIndex = Math.floor(Math.random() * (i + 1)) %>
-            <% let temp =indexes[i] %>
-            <% indexes[i] = indexes[randomIndex] %>
-            <% indexes[randomIndex] = temp %>
-        <% } %>
-
-        <% return indexes %>
-       <% } %>
-
-       <% let arrayLength = images.length %>
-       <% let randomIndexes = creatRandomIndexes(arrayLength) %>
-
-       <% for( let i = 0; i< arrayLength; i++ ) { %>
-        <% let randomIndex = randomIndexes[i] %>
-        <% let randomData = images[randomIndex] %>
-    
-        <div class="col-lg-4">
+      <div class="d-flex justify-content-center">
+        
+        <div class="col">
+            <% for( let i = 0; i < images.length; i++ ) { %>
+          <% let cleanedImage = images[i] %>
           <div class="card">
             <img
-              src="<%= randomData.img_address %>"
+              src="<%= cleanedImage.img_address %>"
               class="card-img-top"
               alt="Waterfall"
             />
             <div class="card-body">
-              <h5 class="card-title"><%= randomData.img_title %></h5>
-              <p class="card-text"><%= randomData.img_description %></p>
-            </div>
-          </div>
-        </div>
-        <% } %>
-
-        <% for( let i = 0; i< arrayLength; i++ ) { %>
-            <% let randomIndex = randomIndexes[i] %>
-            <% let randomData = images[randomIndex] %>
-        <div class="col-lg-4 d-none d-lg-block">
-          <div class="card">
-            <img
-              src="<%= randomData.img_address %>"
-              class="card-img-top"
-              alt="Sunset Over the Sea"
-            />
-            <div class="card-body">
-              <h5 class="card-title"><%= randomData.img_title %></h5>
+              <h5 class="card-title"><%= cleanedImage.img_title %></h5>
               <p class="card-text">
-                <%= randomData.img_description %>
+                <%= cleanedImage.img_description %>
               </p>
-            </div>
-          </div>
-        </div>
-        <% } %>
-
-        <% for( let i = 0; i< arrayLength; i++ ) { %>
-            <% let randomIndex = randomIndexes[i] %>
-            <% let randomData = images[randomIndex] %>
-          <div class="col-lg-4">
-            <div class="card">
-              <img
-                src="https://mdbcdn.b-cdn.net/img/new/standard/nature/181.webp"
-                class="card-img-top"
-                alt="Waterfall"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up the bulk
-                  of the card's content.
-                </p>
-              </div>
+              <form  method="POST" action="/miami/<%= cleanedImage.id %>?_method=DELETE">
+                <input class="button is-danger" type="submit" value="Delete">
+            </form>
             </div>
           </div>
           <% } %>
+        </div>
       </div>
     </div>
   </div>
-
-  <!-- Single item -->
-
 </div>
+
 <!-- Controls -->
 <div class="d-flex justify-content-center mb-4">
     <a href="/miami/gallery/new" class="btn btn-primary"> Add Your Own Images</a>

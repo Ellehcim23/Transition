@@ -138,3 +138,40 @@ const image = require('./models/image');
 //     .catch(err=>console.log('Error', err));
 // })
 // .catch(err=>console.log('Error', err));
+
+//  function creatRandomIndexes(length) { 
+//      let indexes = Array.from({ length }, (_, i) => i) 
+//      for( let i = length - 1; i > 0; i-- ) { 
+//          let randomIndex = Math.floor(Math.random() * (i + 1)) 
+//          let temp =indexes[i] 
+//          indexes[i] = indexes[randomIndex] 
+//          indexes[randomIndex] = temp 
+//      } 
+
+//      return indexes 
+//     } 
+
+//     let arrayLength = images.length 
+//     let randomIndexes = creatRandomIndexes(arrayLength) 
+
+//     for( let i = 0; i< arrayLength; i++ ) { 
+//      let randomIndex = randomIndexes[i] 
+//      let randomData = images[randomIndex] 
+//     } 
+//     <div class="col-lg-4">
+//       <div class="card">
+//         <img
+//           src="<%= randomData.img_address %>"
+//           class="card-img-top"
+//           alt="Waterfall"
+//         />
+//         <div class="card-body">
+//           <h5 class="card-title"><%= randomData.img_title %></h5>
+//           <p class="card-text"><%= randomData.img_description %></p>
+//           <form  method="POST" action="/miami/<%= randomData.id %>?_method=DELETE">
+//             <input class="button is-danger" type="submit" value="Delete">
+//       </form>
+//         </div>
+//       </div>
+//     </div>
+     
