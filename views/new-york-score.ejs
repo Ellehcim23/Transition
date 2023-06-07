@@ -18,6 +18,7 @@
                     <a href="/new-york/score" class="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i class="bi bi-film"></i> <span>City Scores</span></a>
                     <a href="/new-york/edit/score" class="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i class="bi bi-film"></i> <span>Edit Scores</span></a>
                     <a href="/new-york/salary" class="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i class="bi bi-heart"></i> <span>City Salaries</span></a>
+                    <a href="/new-york/gallery" class="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i class="bi bi-heart"></i> <span>City Gallery</span></a>
                 </div>
             </div>
         </div>
@@ -165,7 +166,9 @@
                                     <div class="col-sm-6 col-xs-6">
                                         <ul class="pagination visible-xs pull-right">
                                             <li><a href="/new-york/edit/score">Edit</a></li>
-                                            <li><a href="#">Delete</a></li>
+                                            <form  method="POST" action="/new-york/scores/?_method=DELETE">
+                                                <input class="button is-danger" type="submit" value="Delete">
+                                          </form>
                                         </ul>
                                     </div>
                                 </div>

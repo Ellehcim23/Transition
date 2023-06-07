@@ -165,8 +165,11 @@
                                 <div class="row">
                                     <div class="col-sm-6 col-xs-6">
                                         <ul class="pagination visible-xs pull-right">
-                                            <li><a href="/miami/edit/score">Edit</a></li>
-                                            <li><a href="#">Delete</a></li>
+                                            <li><a href="/miami/edit/score" class="btn btn-primary">Edit</a></li>
+                                            <form  method="POST" action="/miami/scores/?_method=DELETE">
+                                                <input class="button is-danger" type="submit" value="Delete">
+                                          </form>
+                                        
                                         </ul>
                                     </div>
                                 </div>

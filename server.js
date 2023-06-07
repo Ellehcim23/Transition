@@ -85,7 +85,7 @@ app.get('/contact', function (req, res) {
 
 app.get('/new-york', (req, res) => {
   location.findOne({
-    where : {id:2}
+    where : {id:3}
   })
   .then(locations => {
     console.log('raw New York info', locations.dataValues)
@@ -99,7 +99,7 @@ app.get('/new-york', (req, res) => {
 
 app.get('/new-york/edit/score', function(req,res){
   life_score.findOne({
-    where: {locationId:2}
+    where: {locationId:3}
   })
   .then(life_scores=> {
     return res.render ('new-york-score-edit', { life_scores: life_scores.dataValues })
@@ -121,7 +121,7 @@ app.get('/new-york/edit/score', function(req,res){
 // })
 app.get('/new-york/score', (req, res) => {
   life_score.findOne({
-    where: {locationId:2}
+    where: {locationId:3}
   })
   .then(life_scores => {
     console.log(life_scores.dataValues)
@@ -146,7 +146,7 @@ app.get('/new-york/score', (req, res) => {
 
 app.get('/new-york/salary', (req, res) => {
   salary.findOne({
-    where: {locationId:1}
+    where: {locationId:3}
   })
   .then(salaries => {
     console.log(salaries.dataValues)
@@ -159,8 +159,18 @@ app.get('/new-york/salary', (req, res) => {
 })
 
 app.get('/new-york/gallery', (req, res) => {
-  // res.json({msg: 'Hello'})
-  return res.render('new-york-gallery');
+  image.findAll({
+    where: { locationId:2 }
+  })
+  .then(images => {
+    const cleaned_images = images.map(c => c.toJSON())
+    console.log("Images", cleaned_images)
+    return res.render('new-york-gallery', {images: cleaned_images});
+  })
+  .catch(err=> {
+    console.log('Err', err);
+    res.render('no-result')
+  })
 })
 
 app.get('/new-york/gallery/new', (req, res) => {
@@ -183,7 +193,7 @@ app.post('/new-york/gallery/new', (req, res) => {
 
 app.put('/new-york/edit/score', function(req,res) {
   life_score.update(req.body, {
-    where: {locationId:2}
+    where: {locationId:3}
   })
   .then(numOfRowsChanged => {
     console.log('Amount of rows changed', numOfRowsChanged)
@@ -194,7 +204,7 @@ app.put('/new-york/edit/score', function(req,res) {
 
 app.delete('/new-york/score', function(req, res) {
   life_score.destroy({
-      where: { locationId:2 }
+      where: { locationId:3 }
   })
   .then(numOfRowsDeleted => {
       console.log('How many rows were deleted?', numOfRowsDeleted);
@@ -294,8 +304,18 @@ app.get('/miami/salary', (req, res) => {
 })
 
 app.get('/miami/gallery', (req, res) => {
-  // res.json({msg: 'Hello'})
-  return res.render('miami-gallery');
+  image.findAll({
+    where: { locationId:1 }
+  })
+  .then(images => {
+    const cleaned_images = images.map(c => c.toJSON())
+    console.log("Images", cleaned_images)
+    return res.render('miami-gallery', {images: cleaned_images});
+  })
+  .catch(err=> {
+    console.log('Err', err);
+    res.render('no-result')
+  })
 })
 
 app.get('/miami/gallery/new', (req, res) => {
@@ -344,7 +364,7 @@ app.delete('/miami/score', function(req, res) {
 
 app.get('/los-angeles', (req, res) => {
   location.findOne({
-    where : {id:3}
+    where : {id:2}
   })
   .then(locations => {
     console.log('raw LA info', locations.dataValues)
@@ -358,7 +378,7 @@ app.get('/los-angeles', (req, res) => {
 
 app.get('/los-angeles/edit/score', function(req,res){
   life_score.findOne({
-    where: {locationId:3}
+    where: {locationId:2}
   })
   .then(life_scores=> {
     return res.render ('los-angeles-score-edit', { life_scores: life_scores.dataValues })
@@ -371,7 +391,7 @@ app.get('/los-angeles/edit/score', function(req,res){
 
 app.get('/los-angeles/score', (req, res) => {
   life_score.findOne({
-    where: {locationId:3}
+    where: {locationId:2}
   })
   .then(life_scores => {
     console.log(life_scores.dataValues)
@@ -385,7 +405,7 @@ app.get('/los-angeles/score', (req, res) => {
 
 app.get('/los-angeles/salary', (req, res) => {
   salary.findOne({
-    where: {locationId:3}
+    where: {locationId:2}
   })
   .then(salaries => {
     console.log(salaries.dataValues)
@@ -398,8 +418,18 @@ app.get('/los-angeles/salary', (req, res) => {
 })
 
 app.get('/los-angeles/gallery', (req, res) => {
-  // res.json({msg: 'Hello'})
-  return res.render('los-angeles-gallery');
+  image.findAll({
+    where: { locationId:2 }
+  })
+  .then(images => {
+    const cleaned_images = images.map(c => c.toJSON())
+    console.log("Images", cleaned_images)
+    return res.render('los-angeles-gallery', {images: cleaned_images});
+  })
+  .catch(err=> {
+    console.log('Err', err);
+    res.render('no-result')
+  })
 })
 
 app.get('/los-angeles/gallery/new', (req, res) => {
@@ -424,7 +454,7 @@ app.post('/los-angeles/gallery/new', (req, res) => {
 
 app.put('/los-angeles/edit/score', function(req,res) {
   life_score.update(req.body, {
-    where: {locationId:3}
+    where: {locationId:2}
   })
   .then(numOfRowsChanged => {
     console.log('Amount of rows changed', numOfRowsChanged)
@@ -435,7 +465,7 @@ app.put('/los-angeles/edit/score', function(req,res) {
 
 app.delete('/los-angeles/score', function(req, res) {
   life_score.destroy({
-      where: { locationId:3 }
+      where: { locationId:2 }
   })
   .then(numOfRowsDeleted => {
       console.log('How many rows were deleted?', numOfRowsDeleted);
