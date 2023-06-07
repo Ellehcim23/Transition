@@ -28,11 +28,24 @@ This web app is built using the <strong>Teleport-API</strong> and the data provi
 * To start the webpage, `npm run dev` in your terminal, then open in your browser with the address `http://localhost:3000/`
 * Explore the App in your browser. 
 
+## File Structure 
+This app was built using express, ejs, Sequelize, Postgres, and Javascript.
+The files are ogranized in a consistent manner which can be seen in the `controllers` and `views` folder.
+Local tests were completed using `database-test.js`. 
+`dbTest.js` was used to test auth files.
+
+Tests were also implemented for the possibility of furture enhancements.
+* See: `test` folder
+
+
 # Future Enhancments
 * Would like to implement a search feature that directly pings the API
 * Favorites feature for users
 * Provide linkage that allows uses to browse living spaces in the cities they are looking at.
 * Incorporate a direct comparison board where users can compare their favorites. 
+* Implement a blog forum for users to connect with each other and those in prospective cities.
+* A randomized gallery page that display
+* etc.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first
