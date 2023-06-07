@@ -58,10 +58,11 @@ data-mdb-ride="carousel"
                 <%= cleanedImage.img_description %>
               </p>
               <form  method="POST" action="/miami/<%= cleanedImage.id %>?_method=DELETE">
-                <input class="button is-danger" type="submit" value="Delete">
+                <input class="btn btn-danger" type="submit" value="Delete">
             </form>
             </div>
           </div>
+          <br>
           <% } %>
         </div>
       </div>

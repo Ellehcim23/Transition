@@ -41,9 +41,6 @@ data-mdb-ride="carousel"
   <!-- Single item -->
   <div class="carousel-item active">
     <div class="container">
-
-    </div>
-  </div>
   <div class="d-flex justify-content-center">
         
     <div class="col">
@@ -61,17 +58,19 @@ data-mdb-ride="carousel"
             <%= cleanedImage.img_description %>
           </p>
           <form  method="POST" action="/los-angeles/<%= cleanedImage.id %>?_method=DELETE">
-            <input class="button is-danger" type="submit" value="Delete">
+            <input class="btn btn-danger" type="submit" value="Delete">
         </form>
       </div>
     </div>
+    <br>
     <% } %>
     </div>
   </div>
-
-  <!-- Single item -->
-
 </div>
+</div>
+</div>
+
+
 <!-- Controls -->
 <div class="d-flex justify-content-center mb-4">
     <a href="/los-angeles/gallery/new" class="btn btn-primary"> Add Your Own Images</a>

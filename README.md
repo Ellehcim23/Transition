@@ -2,7 +2,7 @@
 
 ## Description 
 Transition is a web app that provides life quality data for different regions. When planning a big moves there was always a lot of data to be sourced from a myriad of different spaces. Transition aims to provide the public with a single platform to see all the information related to a proposed location prior to moving. This allows viewers to make a mindful decision on the next steps of their future.
-This web app is built using the <strong>Teleport-API</strong> and the data provided.
+This web app is built using the <strong>[Teleport-API](https://developers.teleport.org/api/)</strong> and the data provided.
 
 ### Features 
 * Life score data for different cities amongst differing qualities
