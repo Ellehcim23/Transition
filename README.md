@@ -13,12 +13,21 @@ This web app is built using the <strong>[Teleport-API](https://developers.telepo
 ## Process
 
 ### Wireframes 
+#### Initial Login
 ![Initial Login](images/Auth-screen.png)
+
+#### Initial Location Layout
 ![Initial Location Layout](images/Location-Page.png)
+
+#### Initial ERD Model
 ![Initial ERD-Models](images//ERD-models.png)
 
 ### Deployment
+
+#### Login
 ![Deployed Login](images/login-page.png)
+
+#### Location Page
 ![Deployed Location Page](images/Deployed-location-page.png)
 
 ## How to Install
