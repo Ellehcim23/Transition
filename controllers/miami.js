@@ -9,6 +9,7 @@ router.get('/', (req, res) => {
       where : {id:1}
     })
     .then(locations => {
+      console.log('location', locations.dataValues)
       return res.render('miami/index', {locations: locations.dataValues})
     })
     .catch(err=> {
